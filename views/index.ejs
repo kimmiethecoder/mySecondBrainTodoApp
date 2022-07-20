@@ -22,11 +22,16 @@
                 <button type="submit"><span class="fas fa-plus">Add Text</span></button>
             </form>
             <ul class="todo-list">
-                <% todoTasks.forEach(content => {%>
+                <% todoTasks.forEach(task => {%>
                 <li class="todo-list-item">
                     <div class="todo-list-item-title">
-                        <%= content.title %>
+                        <%= task.title %>
                     </div>
+                    <div class="todo-list-item-content">
+                        <%= task.content %>
+                    </div>
+                    <a href="/edit/<%=task._id %>" class="edit"><span class="fas fa-edit"></span></a>
+                    <a href="/remove/<%=task._id %>" class="remove"><span class="fas fa-times"></span></a>
                 </li>
                <% }) %>
             </ul>
