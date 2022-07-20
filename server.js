@@ -77,7 +77,15 @@ app
     
 
 // Set up DELETE method
-
+app
+    .route("/remove/:id")
+    .get((req, res) => {
+        const id = req.params.id
+        TodoTask.findByIdAndRemove(id, err => {
+            if (err) return res.status(500).send(err)
+            res.redirect('/')
+        })
+    })
 
 
 
